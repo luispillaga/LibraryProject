@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d72daa106a14fd097959e95ed995e46" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryModel.Administrador" Width="1.5" PointX="9.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Autor" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Ciudad" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Cliente" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Editorial" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Ejemplar" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.EjemplarPrestamo" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Genero" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Libro" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Prestamo" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Proveedor" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="LibraryModel.FK__Libro__autor_id__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__Cliente__ciudad___4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__Proveedor__ciuda__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__Prestamo__client__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__Libro__editorial__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__Ejemplar__libro___47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__EjemplarP__ejemp__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__EjemplarP__prest__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__Libro__genero_id__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryModel.FK__Libro__proveedor__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

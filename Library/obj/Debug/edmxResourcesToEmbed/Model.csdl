@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Administrador">
+    <Key>
+      <PropertyRef Name="administrador_id" />
+    </Key>
+    <Property Name="administrador_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="administrador_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="administrador_usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="administrador_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="administrador_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Autor">
+    <Key>
+      <PropertyRef Name="autor_id" />
+    </Key>
+    <Property Name="autor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="autor_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Libroes" Relationship="Self.FK__Libro__autor_id__440B1D61" FromRole="Autor" ToRole="Libro" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="ciudad_id" />
+    </Key>
+    <Property Name="ciudad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ciudad_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Cliente__ciudad___4AB81AF0" FromRole="Ciudad" ToRole="Cliente" />
+    <NavigationProperty Name="Proveedors" Relationship="Self.FK__Proveedor__ciuda__398D8EEE" FromRole="Ciudad" ToRole="Proveedor" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cliente_id" />
+    </Key>
+    <Property Name="cliente_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cliente_cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cliente_telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ciudad_id" Type="Int32" />
+    <NavigationProperty Name="Ciudad" Relationship="Self.FK__Cliente__ciudad___4AB81AF0" FromRole="Cliente" ToRole="Ciudad" />
+    <NavigationProperty Name="Prestamoes" Relationship="Self.FK__Prestamo__client__4D94879B" FromRole="Cliente" ToRole="Prestamo" />
+  </EntityType>
+  <EntityType Name="Editorial">
+    <Key>
+      <PropertyRef Name="editorial_id" />
+    </Key>
+    <Property Name="editorial_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="editorial_nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Libroes" Relationship="Self.FK__Libro__editorial__4316F928" FromRole="Editorial" ToRole="Libro" />
+  </EntityType>
+  <EntityType Name="Ejemplar">
+    <Key>
+      <PropertyRef Name="ejemplar_id" />
+    </Key>
+    <Property Name="ejemplar_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ejemplar_numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ejemplar_estado" Type="Boolean" />
+    <Property Name="libro_id" Type="Int32" />
+    <NavigationProperty Name="Libro" Relationship="Self.FK__Ejemplar__libro___47DBAE45" FromRole="Ejemplar" ToRole="Libro" />
+    <NavigationProperty Name="EjemplarPrestamoes" Relationship="Self.FK__EjemplarP__ejemp__5070F446" FromRole="Ejemplar" ToRole="EjemplarPrestamo" />
+  </EntityType>
+  <EntityType Name="EjemplarPrestamo">
+    <Key>
+      <PropertyRef Name="eje_prestamo_id" />
+    </Key>
+    <Property Name="eje_prestamo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ejemplar_id" Type="Int32" />
+    <Property Name="prestamo_id" Type="Int32" />
+    <NavigationProperty Name="Ejemplar" Relationship="Self.FK__EjemplarP__ejemp__5070F446" FromRole="EjemplarPrestamo" ToRole="Ejemplar" />
+    <NavigationProperty Name="Prestamo" Relationship="Self.FK__EjemplarP__prest__5165187F" FromRole="EjemplarPrestamo" ToRole="Prestamo" />
+  </EntityType>
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="genero_id" />
+    </Key>
+    <Property Name="genero_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="genero_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Libroes" Relationship="Self.FK__Libro__genero_id__44FF419A" FromRole="Genero" ToRole="Libro" />
+  </EntityType>
+  <EntityType Name="Libro">
+    <Key>
+      <PropertyRef Name="libro_id" />
+    </Key>
+    <Property Name="libro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="libro_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="libro_fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="libro_precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="proveedor_id" Type="Int32" />
+    <Property Name="editorial_id" Type="Int32" />
+    <Property Name="autor_id" Type="Int32" />
+    <Property Name="genero_id" Type="Int32" />
+    <NavigationProperty Name="Autor" Relationship="Self.FK__Libro__autor_id__440B1D61" FromRole="Libro" ToRole="Autor" />
+    <NavigationProperty Name="Editorial" Relationship="Self.FK__Libro__editorial__4316F928" FromRole="Libro" ToRole="Editorial" />
+    <NavigationProperty Name="Ejemplars" Relationship="Self.FK__Ejemplar__libro___47DBAE45" FromRole="Libro" ToRole="Ejemplar" />
+    <NavigationProperty Name="Genero" Relationship="Self.FK__Libro__genero_id__44FF419A" FromRole="Libro" ToRole="Genero" />
+    <NavigationProperty Name="Proveedor" Relationship="Self.FK__Libro__proveedor__4222D4EF" FromRole="Libro" ToRole="Proveedor" />
+  </EntityType>
+  <EntityType Name="Prestamo">
+    <Key>
+      <PropertyRef Name="prestamo_id" />
+    </Key>
+    <Property Name="prestamo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prestamo_fecha_desde" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="prestamo_fecha_hasta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="prestamo_fecha_entrega" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="prestamo_estado_devolucion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="prestamo_estado" Type="Boolean" />
+    <Property Name="cliente_id" Type="Int32" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Prestamo__client__4D94879B" FromRole="Prestamo" ToRole="Cliente" />
+    <NavigationProperty Name="EjemplarPrestamoes" Relationship="Self.FK__EjemplarP__prest__5165187F" FromRole="Prestamo" ToRole="EjemplarPrestamo" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="proveedor_id" />
+    </Key>
+    <Property Name="proveedor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proveedor_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="proveedor_telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="proveedor_direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ciudad_id" Type="Int32" />
+    <NavigationProperty Name="Ciudad" Relationship="Self.FK__Proveedor__ciuda__398D8EEE" FromRole="Proveedor" ToRole="Ciudad" />
+    <NavigationProperty Name="Libroes" Relationship="Self.FK__Libro__proveedor__4222D4EF" FromRole="Proveedor" ToRole="Libro" />
+  </EntityType>
+  <Association Name="FK__Libro__autor_id__440B1D61">
+    <End Role="Autor" Type="Self.Autor" Multiplicity="0..1" />
+    <End Role="Libro" Type="Self.Libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autor">
+        <PropertyRef Name="autor_id" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="autor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__ciudad___4AB81AF0">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="ciudad_id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="ciudad_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__ciuda__398D8EEE">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="ciudad_id" />
+      </Principal>
+      <Dependent Role="Proveedor">
+        <PropertyRef Name="ciudad_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prestamo__client__4D94879B">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cliente_id" />
+      </Principal>
+      <Dependent Role="Prestamo">
+        <PropertyRef Name="cliente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Libro__editorial__4316F928">
+    <End Role="Editorial" Type="Self.Editorial" Multiplicity="0..1" />
+    <End Role="Libro" Type="Self.Libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Editorial">
+        <PropertyRef Name="editorial_id" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="editorial_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ejemplar__libro___47DBAE45">
+    <End Role="Libro" Type="Self.Libro" Multiplicity="0..1" />
+    <End Role="Ejemplar" Type="Self.Ejemplar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libro">
+        <PropertyRef Name="libro_id" />
+      </Principal>
+      <Dependent Role="Ejemplar">
+        <PropertyRef Name="libro_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EjemplarP__ejemp__5070F446">
+    <End Role="Ejemplar" Type="Self.Ejemplar" Multiplicity="0..1" />
+    <End Role="EjemplarPrestamo" Type="Self.EjemplarPrestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ejemplar">
+        <PropertyRef Name="ejemplar_id" />
+      </Principal>
+      <Dependent Role="EjemplarPrestamo">
+        <PropertyRef Name="ejemplar_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EjemplarP__prest__5165187F">
+    <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="0..1" />
+    <End Role="EjemplarPrestamo" Type="Self.EjemplarPrestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prestamo">
+        <PropertyRef Name="prestamo_id" />
+      </Principal>
+      <Dependent Role="EjemplarPrestamo">
+        <PropertyRef Name="prestamo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Libro__genero_id__44FF419A">
+    <End Role="Genero" Type="Self.Genero" Multiplicity="0..1" />
+    <End Role="Libro" Type="Self.Libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="genero_id" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="genero_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Libro__proveedor__4222D4EF">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+    <End Role="Libro" Type="Self.Libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="proveedor_id" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="proveedor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Administradors" EntityType="Self.Administrador" />
+    <EntitySet Name="Autors" EntityType="Self.Autor" />
+    <EntitySet Name="Ciudads" EntityType="Self.Ciudad" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Editorials" EntityType="Self.Editorial" />
+    <EntitySet Name="Ejemplars" EntityType="Self.Ejemplar" />
+    <EntitySet Name="EjemplarPrestamoes" EntityType="Self.EjemplarPrestamo" />
+    <EntitySet Name="Generoes" EntityType="Self.Genero" />
+    <EntitySet Name="Libroes" EntityType="Self.Libro" />
+    <EntitySet Name="Prestamoes" EntityType="Self.Prestamo" />
+    <EntitySet Name="Proveedors" EntityType="Self.Proveedor" />
+    <AssociationSet Name="FK__Libro__autor_id__440B1D61" Association="Self.FK__Libro__autor_id__440B1D61">
+      <End Role="Autor" EntitySet="Autors" />
+      <End Role="Libro" EntitySet="Libroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__ciudad___4AB81AF0" Association="Self.FK__Cliente__ciudad___4AB81AF0">
+      <End Role="Ciudad" EntitySet="Ciudads" />
+      <End Role="Cliente" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__ciuda__398D8EEE" Association="Self.FK__Proveedor__ciuda__398D8EEE">
+      <End Role="Ciudad" EntitySet="Ciudads" />
+      <End Role="Proveedor" EntitySet="Proveedors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prestamo__client__4D94879B" Association="Self.FK__Prestamo__client__4D94879B">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Prestamo" EntitySet="Prestamoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Libro__editorial__4316F928" Association="Self.FK__Libro__editorial__4316F928">
+      <End Role="Editorial" EntitySet="Editorials" />
+      <End Role="Libro" EntitySet="Libroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ejemplar__libro___47DBAE45" Association="Self.FK__Ejemplar__libro___47DBAE45">
+      <End Role="Libro" EntitySet="Libroes" />
+      <End Role="Ejemplar" EntitySet="Ejemplars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EjemplarP__ejemp__5070F446" Association="Self.FK__EjemplarP__ejemp__5070F446">
+      <End Role="Ejemplar" EntitySet="Ejemplars" />
+      <End Role="EjemplarPrestamo" EntitySet="EjemplarPrestamoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EjemplarP__prest__5165187F" Association="Self.FK__EjemplarP__prest__5165187F">
+      <End Role="Prestamo" EntitySet="Prestamoes" />
+      <End Role="EjemplarPrestamo" EntitySet="EjemplarPrestamoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Libro__genero_id__44FF419A" Association="Self.FK__Libro__genero_id__44FF419A">
+      <End Role="Genero" EntitySet="Generoes" />
+      <End Role="Libro" EntitySet="Libroes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Libro__proveedor__4222D4EF" Association="Self.FK__Libro__proveedor__4222D4EF">
+      <End Role="Proveedor" EntitySet="Proveedors" />
+      <End Role="Libro" EntitySet="Libroes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,80 @@
+﻿@model Library.Libro
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Libro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.libro_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libro_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.libro_fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libro_fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.libro_precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libro_precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Autor.autor_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autor.autor_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Editorial.editorial_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Editorial.editorial_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genero.genero_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero.genero_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedor.proveedor_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedor.proveedor_nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

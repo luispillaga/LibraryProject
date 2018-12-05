@@ -1,0 +1,50 @@
+﻿@model Library.Administrador
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Administrador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.administrador_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.administrador_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.administrador_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.administrador_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.administrador_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.administrador_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.administrador_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.administrador_email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.administrador_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

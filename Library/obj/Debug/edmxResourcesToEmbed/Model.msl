@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="LibraryEntities">
+    <EntitySetMapping Name="Administradors">
+      <EntityTypeMapping TypeName="LibraryModel.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="administrador_id" ColumnName="administrador_id" />
+          <ScalarProperty Name="administrador_nombre" ColumnName="administrador_nombre" />
+          <ScalarProperty Name="administrador_usuario" ColumnName="administrador_usuario" />
+          <ScalarProperty Name="administrador_password" ColumnName="administrador_password" />
+          <ScalarProperty Name="administrador_email" ColumnName="administrador_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Autors">
+      <EntityTypeMapping TypeName="LibraryModel.Autor">
+        <MappingFragment StoreEntitySet="Autor">
+          <ScalarProperty Name="autor_id" ColumnName="autor_id" />
+          <ScalarProperty Name="autor_nombre" ColumnName="autor_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudads">
+      <EntityTypeMapping TypeName="LibraryModel.Ciudad">
+        <MappingFragment StoreEntitySet="Ciudad">
+          <ScalarProperty Name="ciudad_id" ColumnName="ciudad_id" />
+          <ScalarProperty Name="ciudad_nombre" ColumnName="ciudad_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="LibraryModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+          <ScalarProperty Name="cliente_name" ColumnName="cliente_name" />
+          <ScalarProperty Name="cliente_cedula" ColumnName="cliente_cedula" />
+          <ScalarProperty Name="cliente_telefono" ColumnName="cliente_telefono" />
+          <ScalarProperty Name="ciudad_id" ColumnName="ciudad_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Editorials">
+      <EntityTypeMapping TypeName="LibraryModel.Editorial">
+        <MappingFragment StoreEntitySet="Editorial">
+          <ScalarProperty Name="editorial_id" ColumnName="editorial_id" />
+          <ScalarProperty Name="editorial_nombre" ColumnName="editorial_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ejemplars">
+      <EntityTypeMapping TypeName="LibraryModel.Ejemplar">
+        <MappingFragment StoreEntitySet="Ejemplar">
+          <ScalarProperty Name="ejemplar_id" ColumnName="ejemplar_id" />
+          <ScalarProperty Name="ejemplar_numero" ColumnName="ejemplar_numero" />
+          <ScalarProperty Name="ejemplar_estado" ColumnName="ejemplar_estado" />
+          <ScalarProperty Name="libro_id" ColumnName="libro_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EjemplarPrestamoes">
+      <EntityTypeMapping TypeName="LibraryModel.EjemplarPrestamo">
+        <MappingFragment StoreEntitySet="EjemplarPrestamo">
+          <ScalarProperty Name="eje_prestamo_id" ColumnName="eje_prestamo_id" />
+          <ScalarProperty Name="ejemplar_id" ColumnName="ejemplar_id" />
+          <ScalarProperty Name="prestamo_id" ColumnName="prestamo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generoes">
+      <EntityTypeMapping TypeName="LibraryModel.Genero">
+        <MappingFragment StoreEntitySet="Genero">
+          <ScalarProperty Name="genero_id" ColumnName="genero_id" />
+          <ScalarProperty Name="genero_nombre" ColumnName="genero_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libroes">
+      <EntityTypeMapping TypeName="LibraryModel.Libro">
+        <MappingFragment StoreEntitySet="Libro">
+          <ScalarProperty Name="libro_id" ColumnName="libro_id" />
+          <ScalarProperty Name="libro_nombre" ColumnName="libro_nombre" />
+          <ScalarProperty Name="libro_fecha" ColumnName="libro_fecha" />
+          <ScalarProperty Name="libro_precio" ColumnName="libro_precio" />
+          <ScalarProperty Name="proveedor_id" ColumnName="proveedor_id" />
+          <ScalarProperty Name="editorial_id" ColumnName="editorial_id" />
+          <ScalarProperty Name="autor_id" ColumnName="autor_id" />
+          <ScalarProperty Name="genero_id" ColumnName="genero_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prestamoes">
+      <EntityTypeMapping TypeName="LibraryModel.Prestamo">
+        <MappingFragment StoreEntitySet="Prestamo">
+          <ScalarProperty Name="prestamo_id" ColumnName="prestamo_id" />
+          <ScalarProperty Name="prestamo_fecha_desde" ColumnName="prestamo_fecha_desde" />
+          <ScalarProperty Name="prestamo_fecha_hasta" ColumnName="prestamo_fecha_hasta" />
+          <ScalarProperty Name="prestamo_fecha_entrega" ColumnName="prestamo_fecha_entrega" />
+          <ScalarProperty Name="prestamo_estado_devolucion" ColumnName="prestamo_estado_devolucion" />
+          <ScalarProperty Name="prestamo_estado" ColumnName="prestamo_estado" />
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedors">
+      <EntityTypeMapping TypeName="LibraryModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="proveedor_id" ColumnName="proveedor_id" />
+          <ScalarProperty Name="proveedor_nombre" ColumnName="proveedor_nombre" />
+          <ScalarProperty Name="proveedor_telefono" ColumnName="proveedor_telefono" />
+          <ScalarProperty Name="proveedor_direccion" ColumnName="proveedor_direccion" />
+          <ScalarProperty Name="ciudad_id" ColumnName="ciudad_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

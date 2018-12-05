@@ -7,12 +7,14 @@
     <link rel="shortcut icon" href="@Url.Content("./Content/img/favicon.ico")">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/css/fontawesome.min.css" rel="stylesheet" />
 </head>
 <body>
     @Html.Partial("_Header")
     @Html.Partial("_LeftPanel")
     <section id="main-content">
         <section class="wrapper-body">
+            @Html.MvcSiteMap().SiteMapPath()
             @RenderBody()
         </section>
     </section>

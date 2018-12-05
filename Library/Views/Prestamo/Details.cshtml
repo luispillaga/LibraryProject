@@ -1,0 +1,66 @@
+﻿@model Library.Prestamo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prestamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.prestamo_fecha_desde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prestamo_fecha_desde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prestamo_fecha_hasta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prestamo_fecha_hasta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prestamo_fecha_entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prestamo_fecha_entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prestamo_estado_devolucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prestamo_estado_devolucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prestamo_estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prestamo_estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.cliente_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.cliente_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.prestamo_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

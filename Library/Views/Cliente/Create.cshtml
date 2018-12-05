@@ -1,0 +1,88 @@
+﻿@model Library.Cliente
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="container">
+    <div class="row">
+    <div class="col-lg-12 ">
+        <section class="panel">
+            <header class="panel-heading">
+                Datos del Cliente
+            </header>
+            <div class="panel-body">
+           @using (Html.BeginForm()) 
+            {
+                @Html.AntiForgeryToken()
+    
+                <div class="form-horizontal">
+                    <h4>Ingrese los datos</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.cliente_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-user"></i></span>
+                                @Html.EditorFor(model => model.cliente_name, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.cliente_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.cliente_cedula, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-id-card"> </i></span>
+                                @Html.EditorFor(model => model.cliente_cedula, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.cliente_cedula, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.cliente_telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-mobile-alt"> </i></span>
+                                @Html.EditorFor(model => model.cliente_telefono, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.cliente_telefono, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ciudad_id, "Ciudad", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-map-marker-alt"></i></span>
+                                @Html.DropDownList("ciudad_id", null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            
+                            @Html.ValidationMessageFor(model => model.ciudad_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        </section>
+    </div>
+</div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

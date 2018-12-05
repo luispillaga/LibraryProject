@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Library.Autor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.autor_nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.autor_nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.autor_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.autor_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.autor_id })
+        </td>
+    </tr>
+}
+
+</table>

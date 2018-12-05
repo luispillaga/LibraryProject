@@ -21,6 +21,13 @@ namespace Library
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Content/js/jquery.js",
+                      "~/Scripts/all.js",
+                      "~/Scripts/all.min.js",
+                      "~/Scripts/brands.js",
+                      "~/Scripts/brands.js",
+                      "~/Scripts/brands.min.js",
+                      "~/Scripts/fontawesome.js",
+                      "~/Scripts/fontawesome.js",
                       "~/Content/js/jquery-ui-1.10.4.min.js",
                       "~/Content/js/jquery-1.8.3.min.js",
                       "~/Content/js/jquery-ui-1.9.2.custom.min.js",
@@ -55,7 +62,8 @@ namespace Library
                       "~/Content/css/bootstrap.min.css",
                       "~/Content/css/bootstrap-theme.css",
                       "~/Content/css/elegant-icons-style.css",
-                      "~/Content/css/font-awesome.min.css",
+                      "~/Content/css/all.css",
+                      "~/Content/css/fontawesome.min.css",
                       "~/Content/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css",
                       "~/Content/assets/fullcalendar/fullcalendar/fullcalendar.css",
                       "~/Content/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css",

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Library.EjemplarPrestamo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ejemplar.ejemplar_numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prestamo.prestamo_estado_devolucion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ejemplar.ejemplar_numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prestamo.prestamo_estado_devolucion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.eje_prestamo_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.eje_prestamo_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.eje_prestamo_id })
+        </td>
+    </tr>
+}
+
+</table>
